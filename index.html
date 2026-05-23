@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anastasiia Rekovets — Research Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #faf7f2;
+      --surface:   #f4f0e8;
+      --surface2:  #ede8de;
+      --border:    #ddd8cc;
+      --ink:       #1c1c1c;
+      --muted:     #7a756c;
+      --subtle:    #b8b2a8;
+      --accent:    #2a6b5c;
+      --accent2:   #1e4f6b;
+      --accent-lt: #e8f2ef;
+      --serif:     'Cormorant Garamond', serif;
+      --sans:      'Outfit', sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 56px;
+      background: rgba(250,247,242,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 55% 45%;
+      padding-top: 62px;
+    }
+
+    .hero-left {
+      padding: 80px 56px;
+      display: flex; flex-direction: column; justify-content: center;
+      border-right: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.64rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 22px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 5.5vw, 5.2rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-role {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 34px;
+    }
+
+    .hero-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 460px;
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 40px;
+    }
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      padding: 5px 13px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 2px;
+      background: var(--surface);
+    }
+    .pill.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-lt);
+    }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px 24px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: transparent;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn:hover { border-color: var(--ink); color: var(--ink); }
+    .btn.primary {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-lt);
+    }
+    .btn.primary:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* ── Hero right ── */
+    .hero-right {
+      padding: 80px 48px;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      gap: 0;
+      background: var(--surface);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .hstat {
+      background: var(--bg);
+      padding: 22px 16px;
+      text-align: center;
+    }
+    .hstat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+    }
+    .hstat-label {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+      display: block;
+      line-height: 1.5;
+    }
+
+    .timeline-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .timeline-label::before {
+      content: ''; width: 20px; height: 1px; background: var(--accent);
+    }
+
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tl-item:first-child { border-top: 1px solid var(--border); }
+    .tl-year {
+      font-family: var(--mono);
+      font-size: 0.64rem;
+      color: var(--subtle);
+      padding-top: 2px;
+      line-height: 1.5;
+    }
+    .tl-degree {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+    .tl-school {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .tl-note {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    /* ── Sections ── */
+    .section {
+      padding: 96px 56px;
+      border-top: 1px solid var(--border);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex; align-items: baseline; gap: 18px;
+      margin-bottom: 48px;
+    }
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--ink);
+    }
+
+    /* ── Projects ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--bg);
+      padding: 36px;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card:hover { background: var(--surface); }
+
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-tag {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .project-methods {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 22px;
+    }
+    .method-tag {
+      font-family: var(--mono);
+      font-size: 0.57rem;
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--surface);
+    }
+
+    .project-link {
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .project-link:hover { color: var(--accent); }
+    .project-link svg { width: 11px; height: 11px; }
+
+    .project-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 48px;
+    }
+    .project-card.featured .project-title { font-size: 1.55rem; }
+
+    .featured-results {
+      display: flex; flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      align-self: start;
+    }
+    .result-item {
+      background: var(--surface);
+      padding: 20px 22px;
+    }
+    .result-num {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .result-label {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* ── SQL ── */
+    .sql-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+
+    .sql-desc {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    .schema-list { list-style: none; }
+    .schema-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 3px;
+    }
+    .schema-item:first-child { border-top: 1px solid var(--border); }
+    .table-name {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent2);
+      font-weight: 400;
+    }
+    .table-desc {
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    .sql-links { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+
+    .code-block {
+      background: #1e2a28;
+      border: 1px solid #2a3a36;
+      padding: 28px;
+      overflow-x: auto;
+    }
+    .code-block pre {
+      font-family: var(--mono);
+      font-size: 0.71rem;
+      line-height: 2;
+      color: #b8c8c0;
+    }
+    .kw  { color: #7ec8a8; }
+    .fn  { color: #c8a87a; }
+    .cm  { color: #3d5248; }
+    .st  { color: #a8c890; }
+
+    .sql-stats {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+      margin-top: 28px;
+    }
+    .sql-stat {
+      background: var(--surface); padding: 20px; text-align: center;
+    }
+    .sql-stat-num {
+      font-family: var(--serif); font-size: 2rem; font-weight: 300;
+      color: var(--accent); line-height: 1; display: block;
+    }
+    .sql-stat-label {
+      font-family: var(--mono); font-size: 0.57rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-top: 6px; display: block;
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+    }
+    .skill-block { background: var(--bg); padding: 30px 26px; }
+    .skill-block:hover { background: var(--surface); }
+    .skill-category {
+      font-family: var(--mono); font-size: 0.59rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 18px;
+    }
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .skill-list li {
+      font-size: 0.8rem; color: var(--muted);
+      padding-left: 14px; position: relative;
+    }
+    .skill-list li::before {
+      content: '–'; position: absolute; left: 0;
+      color: var(--border);
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid; grid-template-columns: 3fr 2fr; gap: 80px;
+    }
+    .about-text {
+      font-size: 0.93rem; color: var(--muted); line-height: 2;
+    }
+    .contact-block { display: flex; flex-direction: column; }
+    .contact-item {
+      padding: 16px 0; border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .contact-item:first-child { border-top: 1px solid var(--border); }
+    .contact-label {
+      font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent);
+    }
+    .contact-value {
+      font-size: 0.84rem; color: var(--ink); text-decoration: none;
+    }
+    .contact-value:hover { color: var(--accent); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 56px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--mono); font-size: 0.6rem; color: var(--subtle);
+      background: var(--surface);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-left > * { animation: fadeUp 0.65s ease both; }
+    .hero-left > *:nth-child(1) { animation-delay: 0.08s; }
+    .hero-left > *:nth-child(2) { animation-delay: 0.18s; }
+    .hero-left > *:nth-child(3) { animation-delay: 0.26s; }
+    .hero-left > *:nth-child(4) { animation-delay: 0.34s; }
+    .hero-left > *:nth-child(5) { animation-delay: 0.42s; }
+    .hero-left > *:nth-child(6) { animation-delay: 0.50s; }
+
+    @media (max-width: 960px) {
+      nav { padding: 16px 24px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { border-right: none; border-bottom: 1px solid var(--border); padding: 60px 24px; }
+      .hero-right { padding: 40px 24px; }
+      .section { padding: 60px 24px; }
+      .projects-grid, .sql-grid, .about-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Anastasiia Rekovets</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#sql">SQL</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Research Portfolio &middot; Economics &amp; Data Science</p>
+    <h1 class="hero-name">Anastasiia<br><em>Rekovets</em></h1>
+    <p class="hero-role">Causal ML &middot; Consumer Behavior &middot; Quantitative Marketing</p>
+    <p class="hero-desc">
+      M.Sc. Economics candidate at LMU Munich. I work at the intersection of
+      causal machine learning, field experimentation, and consumer behavior —
+      using high-dimensional administrative data to estimate treatment effect
+      heterogeneity across individuals and markets.
+    </p>
+    <div class="hero-pills">
+      <span class="pill active">Causal Forests</span>
+      <span class="pill active">Field Experiments</span>
+      <span class="pill active">Digital Marketing</span>
+      <span class="pill active">Pricing</span>
+      <span class="pill">Reinforcement Learning</span>
+      <span class="pill">NLP</span>
+    </div>
+    <div class="hero-actions">
+      <a href="https://github.com/ana-rekovets" class="btn primary" target="_blank">GitHub</a>
+      <a href="mailto:ana.rekovets@gmail.com" class="btn">Contact</a>
+      <a href="#research" class="btn">View Research</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="hstat">
+        <span class="hstat-num">6+</span>
+        <span class="hstat-label">Research Projects</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num">4</span>
+        <span class="hstat-label">Countries Studied</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num">#1</span>
+        <span class="hstat-label">LMU Rank, Germany</span>
+      </div>
+    </div>
+
+    <p class="timeline-label">Education</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2024 –<br>2026</div>
+        <div class="tl-content">
+          <div class="tl-degree">M.Sc. Economics</div>
+          <div class="tl-school">Ludwig Maximilian University of Munich</div>
+          <div class="tl-note">Causal Inference · ML in Econometrics · Advanced Econometrics</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025 –<br>2026</div>
+        <div class="tl-content">
+          <div class="tl-degree">Visiting Student</div>
+          <div class="tl-school">Università della Svizzera italiana, Lugano</div>
+          <div class="tl-note">Machine Learning · Databases · Data Analytics</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2020 –<br>2024</div>
+        <div class="tl-content">
+          <div class="tl-degree">B.Sc. Economics &amp; Statistics</div>
+          <div class="tl-school">Higher School of Economics (HSE)</div>
+          <div class="tl-note">Top 5% of cohort · Full Merit Scholarship</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<div id="research">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Research Projects</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card featured">
+      <div>
+        <p class="project-tag">Causal Inference &middot; Field Experiment &middot; LMU Munich &middot; Mar 2026</p>
+        <h3 class="project-title">When Is TSLS Actually LATE? Evidence from Project STAR</h3>
+        <p class="project-desc">
+          Replication and extension of Krueger (1999). Applied DDML and IPSW estimators to test
+          whether TSLS retains a valid Local Average Treatment Effect interpretation under covariate
+          inclusion, following Blandhol et al. (2022). The rich covariates condition fails in all
+          grade cohorts — by Grade 3, specification bias accounts for 32.6% of the TSLS estimate,
+          exceeding the selection bias the IV strategy was designed to eliminate.
+        </p>
+        <div class="project-methods">
+          <span class="method-tag">DDML</span>
+          <span class="method-tag">IPSW</span>
+          <span class="method-tag">IV / TSLS</span>
+          <span class="method-tag">RESET Test</span>
+          <span class="method-tag">Python</span>
+          <span class="method-tag">DoubleML</span>
+        </div>
+        <a href="https://github.com/ana-rekovets/project-star-causal-inference" class="project-link" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="featured-results">
+        <div class="result-item">
+          <div class="result-num">32.6%</div>
+          <div class="result-label">Specification bias as share of TSLS estimate, Grade 3</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">N=11,599</div>
+          <div class="result-label">Students across K–Grade 3, Project STAR</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">4</div>
+          <div class="result-label">Estimators compared: OLS, TSLS, DDML, IPSW</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Causal ML &middot; Natural Experiment &middot; LMU Munich &middot; Jun 2025</p>
+      <h3 class="project-title">Early-Life Cash Transfers: A Causal Forest Approach</h3>
+      <p class="project-desc">
+        Replication and extension of Aizer et al. (2016). Applied Generalized Random Forests
+        with doubly robust R-learner estimation to linked administrative records. Estimated ATE
+        of ~1.1 life-years and identified significant CATE heterogeneity driven by county-level
+        public spending on education and welfare.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">GRF</span>
+        <span class="method-tag">R-Learner</span>
+        <span class="method-tag">CATE</span>
+        <span class="method-tag">Propensity Trimming</span>
+        <span class="method-tag">R / grf</span>
+      </div>
+      <a href="https://github.com/ana-rekovets/causal-forest-cash-transfers" class="project-link" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Causal ML &middot; Firm-Level Data &middot; LMU Munich &middot; Aug 2025</p>
+      <h3 class="project-title">Evaluating AI &amp; Innovation Subsidies with Causal ML</h3>
+      <p class="project-desc">
+        Applied Causal Forests, DDML, and DR-TMLE to firm-level panel data (2,300+ firms)
+        to estimate heterogeneous treatment effects of innovation subsidies on productivity.
+        Analyzed CATE variation by firm size and sector.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">Causal Forests</span>
+        <span class="method-tag">DDML</span>
+        <span class="method-tag">DR-TMLE</span>
+        <span class="method-tag">Panel Data</span>
+        <span class="method-tag">Python / R</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">ML / AI &middot; USI Lugano &middot; Jan 2026</p>
+      <h3 class="project-title">Neural Network &amp; Reinforcement Learning from Scratch</h3>
+      <p class="project-desc">
+        Implemented a fully connected neural network in Python/NumPy including forward
+        propagation, ReLU, and manually derived backpropagation. Implemented SARSA and
+        Q-Learning using OpenAI Gymnasium with epsilon-greedy exploration across 200+
+        training episodes.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">SARSA</span>
+        <span class="method-tag">Q-Learning</span>
+        <span class="method-tag">Backpropagation</span>
+        <span class="method-tag">Gymnasium</span>
+        <span class="method-tag">NumPy</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Consumer Behavior &middot; USI Lugano &middot; Dec 2025</p>
+      <h3 class="project-title">Consumer Behavior Research: Digital Collaboration Tools</h3>
+      <p class="project-desc">
+        Conducted 12 semi-structured interviews. Synthesized qualitative data using Work
+        Activity Affinity Diagrams (WAAD) to identify consumer pain points, tool usage
+        patterns, and collaboration barriers. Developed three empirically grounded user
+        personas validated against interview data.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">WAAD</span>
+        <span class="method-tag">User Personas</span>
+        <span class="method-tag">Qualitative Research</span>
+        <span class="method-tag">SUS Evaluation</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Pricing &middot; Panel Data &middot; HSE &middot; Jun 2024</p>
+      <h3 class="project-title">Migration Shocks, Housing Markets &amp; Prices</h3>
+      <p class="project-desc">
+        Bachelor's thesis. Constructed a monthly 8-year panel from three administrative
+        sources. Applied econometric analysis to estimate pricing responses to large-scale
+        exogenous demand shocks. Found a 1% demand increase caused a 1.4% immediate
+        price increase with 3× amplification during a structural shock.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">Panel Data</span>
+        <span class="method-tag">IV / TSLS</span>
+        <span class="method-tag">ITS</span>
+        <span class="method-tag">Stata</span>
+        <span class="method-tag">Python</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Political Economy &middot; Panel Data &middot; University of Leipzig &middot; Sep 2023</p>
+      <h3 class="project-title">Income Inequality, Capitalism, and Diversity: A Shapley Decomposition</h3>
+      <p class="project-desc">
+        Analyzed a macroeconomic panel (108 countries, 40 years) in Stata using Shapley
+        and Owen R² decompositions to quantify drivers of income redistribution. Found that
+        the economic freedom–diversity interaction accounts for ~50% of explained variance
+        in baseline redistribution models.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">Shapley Decomposition</span>
+        <span class="method-tag">Owen R²</span>
+        <span class="method-tag">Macro Panel Data</span>
+        <span class="method-tag">Stata</span>
+        <span class="method-tag">108 Countries</span>
+      </div>
+      <a href="https://github.com/ana-rekovets/income-inequality-decomposition" class="project-link" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- SQL -->
+<div id="sql">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Supermarket Chain — Relational Database</h2>
+  </div>
+  <div class="sql-grid">
+    <div>
+      <p class="sql-desc">
+        Full design and implementation of a normalized relational database for a multi-country
+        supermarket chain in MySQL. Covers the complete pipeline from EER diagram to 3NF schema
+        to 15 analytical queries spanning joins, correlated subqueries, and relational division.
+      </p>
+      <p class="sql-desc">
+        Models customers, transactions, products, store inventory, payment methods, and a
+        loyalty points program with full earn/redeem audit trail. Historical pricing stored at
+        transaction level — past receipts remain accurate when list prices change.
+      </p>
+      <ul class="schema-list">
+        <li class="schema-item">
+          <span class="table-name">POINT_OF_SALE</span>
+          <span class="table-desc">3 stores · Switzerland, Italy, Germany</span>
+        </li>
+        <li class="schema-item">
+          <span class="table-name">CUSTOMER + LOYALTY_CARD</span>
+          <span class="table-desc">1:1 enforced via UNIQUE(customer_id)</span>
+        </li>
+        <li class="schema-item">
+          <span class="table-name">TRANSACTION</span>
+          <span class="table-desc">Composite FK → PAYMENT_METHOD(point_id, method)</span>
+        </li>
+        <li class="schema-item">
+          <span class="table-name">PRODUCT_IN_TRANSACTION</span>
+          <span class="table-desc">Line items with historical unit_price at purchase time</span>
+        </li>
+        <li class="schema-item">
+          <span class="table-name">POINTS_MOVEMENT</span>
+          <span class="table-desc">Full earn/redeem audit trail · nullable transaction_id</span>
+        </li>
+      </ul>
+      <div class="sql-links">
+        <a href="https://github.com/ana-rekovets/supermarket-chain-db" class="btn primary" target="_blank">View on GitHub</a>
+        <a href="https://github.com/ana-rekovets/supermarket-chain-db/blob/main/queries.sql" class="btn" target="_blank">queries.sql</a>
+        <a href="https://github.com/ana-rekovets/supermarket-chain-db/blob/main/creating_tables.sql" class="btn" target="_blank">schema.sql</a>
+      </div>
+    </div>
+    <div>
+      <div class="code-block">
+        <pre><span class="cm">-- Q14: Relational division</span>
+<span class="cm">-- stores accepting ALL payment methods</span>
+
+<span class="kw">SELECT</span> pos.point_id,
+       pos.name, pos.city
+<span class="kw">FROM</span> POINT_OF_SALE pos
+<span class="kw">WHERE NOT EXISTS</span> (
+  <span class="kw">SELECT</span> 1
+  <span class="kw">FROM</span> (
+    <span class="kw">SELECT DISTINCT</span> payment_method
+    <span class="kw">FROM</span> PAYMENT_METHOD
+  ) allm
+  <span class="kw">WHERE NOT EXISTS</span> (
+    <span class="kw">SELECT</span> 1
+    <span class="kw">FROM</span> PAYMENT_METHOD pm
+    <span class="kw">WHERE</span> pm.point_id = pos.point_id
+      <span class="kw">AND</span> pm.payment_method
+        = allm.payment_method
+  )
+)
+<span class="kw">ORDER BY</span> pos.point_id;</pre>
+      </div>
+      <div class="sql-stats">
+        <div class="sql-stat">
+          <span class="sql-stat-num">8</span>
+          <span class="sql-stat-label">Tables · 3NF</span>
+        </div>
+        <div class="sql-stat">
+          <span class="sql-stat-num">15</span>
+          <span class="sql-stat-label">SQL Queries</span>
+        </div>
+        <div class="sql-stat">
+          <span class="sql-stat-num">3</span>
+          <span class="sql-stat-label">Countries</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <p class="skill-category">ML &amp; AI</p>
+      <ul class="skill-list">
+        <li>Causal Forests (GRF)</li>
+        <li>Double/Debiased ML</li>
+        <li>DR-TMLE</li>
+        <li>Neural Networks (scratch)</li>
+        <li>Reinforcement Learning</li>
+        <li>NLP Fundamentals</li>
+        <li>Supervised Learning</li>
+        <li>Clustering</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <p class="skill-category">Statistical Methods</p>
+      <ul class="skill-list">
+        <li>Causal Inference</li>
+        <li>Field &amp; Survey Experiments</li>
+        <li>Heterogeneous Treatment Effects</li>
+        <li>IV / TSLS</li>
+        <li>Difference-in-Differences</li>
+        <li>Interrupted Time Series</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <p class="skill-category">Software</p>
+      <ul class="skill-list">
+        <li>Python (pandas, NumPy, sklearn)</li>
+        <li>R (tidyverse, grf, DoubleML)</li>
+        <li>SQL / MySQL</li>
+        <li>Stata</li>
+        <li>GitHub</li>
+        <li>LaTeX</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <p class="skill-category">Data Skills</p>
+      <ul class="skill-list">
+        <li>High-dimensional transaction data</li>
+        <li>Pricing &amp; advertising data</li>
+        <li>Unstructured data processing</li>
+        <li>Web scraping &amp; API collection</li>
+        <li>Panel construction</li>
+        <li>Consumer segmentation</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ABOUT -->
+<div id="about">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">About</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      I am an M.Sc. Economics candidate at LMU Munich with a research focus on causal
+      machine learning, consumer behavior, and high-dimensional data. My work combines
+      causal forest methods, field experiment design, and statistical analysis to estimate
+      heterogeneous treatment effects across individuals and markets. I bring hands-on
+      experience in data pipeline automation, digital marketing analytics, and consumer
+      research — and I am available for a full-time research position starting June or
+      July 2026. U.S. Permanent Resident, based in West New York, NJ.
+    </div>
+    <div class="contact-block">
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <a href="mailto:ana.rekovets@gmail.com" class="contact-value">ana.rekovets@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Phone</span>
+        <span class="contact-value">+1 (201) 758-6034</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">GitHub</span>
+        <a href="https://github.com/ana-rekovets" class="contact-value" target="_blank">github.com/ana-rekovets</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">West New York, NJ</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Status</span>
+        <span class="contact-value">U.S. Permanent Resident</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Available</span>
+        <span class="contact-value">June / July 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+  <span>Anastasiia Rekovets</span>
+  <span>M.Sc. Economics · LMU Munich · 2026</span>
+</footer>
+
+</body>
+</html>
