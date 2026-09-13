@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anastasiia Rekovets — Research Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
-  <style>
+<title>Anastasiia Rekovets — Data Science Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #faf7f2;
-      --surface:   #f4f0e8;
-      --surface2:  #ede8de;
-      --border:    #ddd8cc;
-      --ink:       #1c1c1c;
-      --muted:     #7a756c;
-      --subtle:    #b8b2a8;
-      --accent:    #2a6b5c;
-      --accent2:   #1e4f6b;
-      --accent-lt: #e8f2ef;
-      --serif:     'Cormorant Garamond', serif;
-      --sans:      'Outfit', sans-serif;
-      --mono:      'JetBrains Mono', monospace;
+      --bg:        #F7F7F7;
+      --surface:   #E7E6E4;
+      --surface2:  #D9D9D9;
+      --border:    #C7C5BC;
+      --border-strong: rgba(0,0,0,0.26);
+      --ink:       #000000;
+      --muted:     #2E2C24;
+      --subtle:    #96927F;
+      --accent:    #5C6248;
+      --accent2:   #7B5843;
+      --accent-deep: #374527;
+      --accent-lt: #EAEBE2;
+      --white:     #FFFFFF;
+      --black:     #000000;
+      --serif:     'Montserrat', sans-serif;
+      --sans:      'Montserrat', sans-serif;
+      --mono:      'Montserrat', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -40,19 +39,19 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 18px 56px;
-      background: rgba(250,247,242,0.94);
+      background: rgba(255,255,255,0.94);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
     .nav-name {
       font-family: var(--serif);
       font-size: 1.1rem;
-      font-weight: 400;
+      font-weight: 500;
       color: var(--ink);
       text-decoration: none;
       letter-spacing: 0.01em;
     }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links { display: flex; gap: 30px; list-style: none; }
     .nav-links a {
       font-family: var(--mono);
       font-size: 0.66rem;
@@ -62,7 +61,7 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { color: var(--accent-deep); }
 
     /* ── Hero ── */
     .hero {
@@ -84,27 +83,27 @@
       font-size: 0.64rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-deep);
       margin-bottom: 22px;
       display: flex; align-items: center; gap: 10px;
     }
     .hero-eyebrow::before {
       content: '';
       width: 28px; height: 1px;
-      background: var(--accent);
+      background: var(--accent-deep);
     }
 
     .hero-name {
       font-family: var(--serif);
-      font-size: clamp(3.2rem, 5.5vw, 5.2rem);
-      font-weight: 300;
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      font-weight: 700;
       line-height: 1.05;
       color: var(--ink);
       margin-bottom: 10px;
     }
     .hero-name em {
-      font-style: italic;
-      color: var(--accent);
+      font-style: normal;
+      color: var(--accent-deep);
     }
 
     .hero-role {
@@ -119,7 +118,7 @@
     .hero-desc {
       font-size: 0.9rem;
       color: var(--muted);
-      max-width: 460px;
+      max-width: 480px;
       line-height: 1.9;
       margin-bottom: 40px;
     }
@@ -139,8 +138,8 @@
       background: var(--surface);
     }
     .pill.active {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--accent-deep);
+      color: var(--accent-deep);
       background: var(--accent-lt);
     }
 
@@ -161,13 +160,14 @@
     }
     .btn:hover { border-color: var(--ink); color: var(--ink); }
     .btn.primary {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--accent-deep);
+      color: var(--accent-deep);
       background: var(--accent-lt);
     }
     .btn.primary:hover {
-      background: var(--accent);
-      color: white;
+      background: var(--accent-deep);
+      border-color: var(--accent-deep);
+      color: var(--white);
     }
 
     /* ── Hero right ── */
@@ -188,15 +188,16 @@
       margin-bottom: 48px;
     }
     .hstat {
-      background: var(--bg);
+      background: var(--white);
       padding: 22px 16px;
       text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
     .hstat-num {
       font-family: var(--serif);
       font-size: 2.2rem;
       font-weight: 300;
-      color: var(--accent);
+      color: var(--accent-deep);
       line-height: 1;
       display: block;
     }
@@ -216,12 +217,12 @@
       font-size: 0.6rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-deep);
       margin-bottom: 18px;
       display: flex; align-items: center; gap: 10px;
     }
     .timeline-label::before {
-      content: ''; width: 20px; height: 1px; background: var(--accent);
+      content: ''; width: 20px; height: 1px; background: var(--accent-deep);
     }
 
     .timeline { display: flex; flex-direction: column; }
@@ -254,7 +255,7 @@
     .tl-note {
       font-family: var(--mono);
       font-size: 0.6rem;
-      color: var(--accent);
+      color: var(--accent-deep);
       margin-top: 4px;
     }
 
@@ -273,14 +274,58 @@
     .section-num {
       font-family: var(--mono);
       font-size: 0.6rem;
-      color: var(--accent);
+      color: var(--accent-deep);
       letter-spacing: 0.12em;
     }
     .section-title {
       font-family: var(--serif);
       font-size: 2rem;
-      font-weight: 300;
+      font-weight: 700;
       color: var(--ink);
+    }
+
+    /* ── Experience Timeline ── */
+    .exp-timeline { position: relative; padding-left: 8px; }
+    .exp-item {
+      display: grid; grid-template-columns: 140px 1fr; gap: 32px;
+      position: relative; padding-bottom: 48px;
+    }
+    .exp-item:last-child { padding-bottom: 0; }
+    .exp-item::before {
+      content: ''; position: absolute; left: 148px; top: 6px; bottom: -48px;
+      width: 1px; background: var(--border);
+    }
+    .exp-item:last-child::before { display: none; }
+    .exp-item::after {
+      content: ''; position: absolute; left: 143px; top: 4px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--accent-deep); border: 2px solid var(--bg);
+    }
+    .exp-date {
+      font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--subtle); padding-top: 2px; line-height: 1.5;
+    }
+    .exp-role {
+      font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent-deep); margin-bottom: 6px;
+    }
+    .exp-title {
+      font-family: var(--serif); font-size: 1.3rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 14px; line-height: 1.3;
+    }
+    .exp-desc {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.85;
+      margin-bottom: 18px; max-width: 680px;
+    }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .exp-tags span {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.04em;
+      color: var(--muted); border: 1px solid var(--border); padding: 4px 10px;
+      background: var(--surface);
+    }
+    @media (max-width: 700px) {
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .exp-item::before, .exp-item::after { display: none; }
     }
 
     /* ── Projects ── */
@@ -293,19 +338,20 @@
     }
 
     .project-card {
-      background: var(--bg);
+      background: var(--white);
       padding: 36px;
       transition: background 0.2s;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
     }
-    .project-card:hover { background: var(--surface); }
+    .project-card:hover { background: var(--surface2); }
 
     .project-card::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--accent);
+      height: 3px;
+      background: var(--accent-deep);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s ease;
@@ -317,14 +363,14 @@
       font-size: 0.58rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-deep);
       margin-bottom: 14px;
     }
 
     .project-title {
       font-family: var(--serif);
       font-size: 1.3rem;
-      font-weight: 400;
+      font-weight: 700;
       color: var(--ink);
       margin-bottom: 14px;
       line-height: 1.3;
@@ -360,7 +406,7 @@
       display: inline-flex; align-items: center; gap: 6px;
       transition: color 0.2s;
     }
-    .project-link:hover { color: var(--accent); }
+    .project-link:hover { color: var(--accent-deep); }
     .project-link svg { width: 11px; height: 11px; }
 
     .project-card.featured {
@@ -386,7 +432,7 @@
       font-family: var(--serif);
       font-size: 1.9rem;
       font-weight: 300;
-      color: var(--accent);
+      color: var(--accent-deep);
       line-height: 1;
     }
     .result-label {
@@ -394,6 +440,28 @@
       color: var(--muted);
       margin-top: 4px;
       line-height: 1.5;
+    }
+
+    /* ── Info Lists (Honors, Presentations & Certificates) ── */
+    .info-list { display: flex; flex-direction: column; }
+    .info-item {
+      display: grid; grid-template-columns: 1fr 170px; gap: 24px;
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .info-item:first-child { border-top: 1px solid var(--border); }
+    .info-title {
+      font-size: 0.92rem; font-weight: 500; color: var(--ink);
+      line-height: 1.4; margin-bottom: 4px;
+    }
+    .info-detail { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+    .info-date {
+      font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--subtle); text-align: right;
+    }
+    @media (max-width: 700px) {
+      .info-item { grid-template-columns: 1fr; gap: 6px; }
+      .info-date { text-align: left; }
     }
 
     /* ── SQL ── */
@@ -421,7 +489,7 @@
       font-family: var(--mono);
       font-size: 0.7rem;
       color: var(--accent2);
-      font-weight: 400;
+      font-weight: 500;
     }
     .table-desc {
       font-size: 0.76rem;
@@ -431,8 +499,8 @@
     .sql-links { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
 
     .code-block {
-      background: #1e2a28;
-      border: 1px solid #2a3a36;
+      background: var(--black);
+      border: 1px solid var(--accent-deep);
       padding: 28px;
       overflow-x: auto;
     }
@@ -440,12 +508,12 @@
       font-family: var(--mono);
       font-size: 0.71rem;
       line-height: 2;
-      color: #b8c8c0;
+      color: #D9D9D9;
     }
-    .kw  { color: #7ec8a8; }
-    .fn  { color: #c8a87a; }
-    .cm  { color: #3d5248; }
-    .st  { color: #a8c890; }
+    .kw  { color: #A9B48A; }
+    .fn  { color: #C99C82; }
+    .cm  { color: #5A5A5A; }
+    .st  { color: #8FA06B; }
 
     .sql-stats {
       display: grid; grid-template-columns: repeat(3,1fr);
@@ -457,7 +525,7 @@
     }
     .sql-stat-num {
       font-family: var(--serif); font-size: 2rem; font-weight: 300;
-      color: var(--accent); line-height: 1; display: block;
+      color: var(--accent-deep); line-height: 1; display: block;
     }
     .sql-stat-label {
       font-family: var(--mono); font-size: 0.57rem;
@@ -470,12 +538,12 @@
       display: grid; grid-template-columns: repeat(4,1fr);
       gap: 1px; background: var(--border); border: 1px solid var(--border);
     }
-    .skill-block { background: var(--bg); padding: 30px 26px; }
-    .skill-block:hover { background: var(--surface); }
+    .skill-block { background: var(--white); padding: 30px 26px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .skill-block:hover { background: var(--surface2); }
     .skill-category {
       font-family: var(--mono); font-size: 0.59rem;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 18px;
+      color: var(--accent-deep); margin-bottom: 18px;
     }
     .skill-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
     .skill-list li {
@@ -503,20 +571,23 @@
     .contact-label {
       font-family: var(--mono); font-size: 0.58rem;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-deep);
     }
     .contact-value {
       font-size: 0.84rem; color: var(--ink); text-decoration: none;
     }
-    .contact-value:hover { color: var(--accent); }
+    .contact-value:hover { color: var(--accent-deep); }
 
     /* ── Footer ── */
+    #sql { background: var(--surface); }
+    #about { background: var(--surface); }
+
     footer {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--accent-deep);
       padding: 26px 56px;
       display: flex; justify-content: space-between; align-items: center;
-      font-family: var(--mono); font-size: 0.6rem; color: var(--subtle);
-      background: var(--surface);
+      font-family: var(--mono); font-size: 0.6rem; color: var(--surface2);
+      background: var(--black);
     }
 
     /* ── Animations ── */
@@ -543,15 +614,15 @@
       .skills-grid { grid-template-columns: 1fr 1fr; }
       footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
     }
-  </style>
-</head>
-<body>
+</style>
 
 <nav>
   <a href="#" class="nav-name">Anastasiia Rekovets</a>
   <ul class="nav-links">
-    <li><a href="#research">Research</a></li>
-    <li><a href="#sql">SQL</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#research">Projects</a></li>
+    <li><a href="#sql">Database</a></li>
+    <li><a href="#certifications">Awards</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#about">About</a></li>
   </ul>
@@ -560,54 +631,57 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Research Portfolio &middot; Economics &amp; Data Science</p>
+    <p class="hero-eyebrow">Portfolio &middot; Data Science &amp; Analytics</p>
     <h1 class="hero-name">Anastasiia<br><em>Rekovets</em></h1>
-    <p class="hero-role">Causal ML &middot; Consumer Behavior &middot; Quantitative Marketing</p>
+    <p class="hero-role">Data Science &middot; Research Scientist &middot; Product &amp; Data Analytics</p>
     <p class="hero-desc">
-      M.Sc. Economics candidate at LMU Munich. I work at the intersection of
-      causal machine learning, field experimentation, and consumer behavior —
-      using high-dimensional administrative data to estimate treatment effect
-      heterogeneity across individuals and markets.
+      Data Scientist with 3+ years of experience in data analysis and experimentation, including
+      academic research; currently completing an M.Sc. thesis remotely from New York, open to
+      relocation. Applies SQL, Python, and R to turn large-scale user and behavioral data into
+      actionable insights for cross-functional product and business teams, building pipelines
+      from experimental design to the metrics and dashboards that monitor product growth and
+      health.
     </p>
     <div class="hero-pills">
-      <span class="pill active">Causal Forests</span>
-      <span class="pill active">Field Experiments</span>
-      <span class="pill active">Digital Marketing</span>
-      <span class="pill active">Pricing</span>
-      <span class="pill">Reinforcement Learning</span>
-      <span class="pill">NLP</span>
+      <span class="pill active">A/B Testing</span>
+      <span class="pill active">Causal Inference</span>
+      <span class="pill active">Product Analytics</span>
+      <span class="pill active">Experimentation</span>
+      <span class="pill">Clustering &amp; Segmentation</span>
+      <span class="pill">SQL &amp; Dashboards</span>
     </div>
     <div class="hero-actions">
       <a href="https://github.com/ana-rekovets" class="btn primary" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/anastasiia-rekovets/" class="btn" target="_blank">LinkedIn</a>
       <a href="mailto:ana.rekovets@gmail.com" class="btn">Contact</a>
-      <a href="#research" class="btn">View Research</a>
+      <a href="#research" class="btn">View Projects</a>
     </div>
   </div>
 
   <div class="hero-right">
     <div class="hero-stats">
       <div class="hstat">
-        <span class="hstat-num">6+</span>
-        <span class="hstat-label">Research Projects</span>
+        <span class="hstat-num">3+</span>
+        <span class="hstat-label">Years Experience</span>
       </div>
       <div class="hstat">
-        <span class="hstat-num">4</span>
-        <span class="hstat-label">Countries Studied</span>
+        <span class="hstat-num">5M+</span>
+        <span class="hstat-label">Rows Analyzed, Enterprise Data</span>
       </div>
       <div class="hstat">
-        <span class="hstat-num">#1</span>
-        <span class="hstat-label">LMU Rank, Germany</span>
+        <span class="hstat-num">40%</span>
+        <span class="hstat-label">Faster Decision-Making</span>
       </div>
     </div>
 
     <p class="timeline-label">Education</p>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-year">2024 –<br>2026</div>
+        <div class="tl-year">2024 –<br>2027</div>
         <div class="tl-content">
           <div class="tl-degree">M.Sc. Economics</div>
           <div class="tl-school">Ludwig Maximilian University of Munich</div>
-          <div class="tl-note">Causal Inference · ML in Econometrics · Advanced Econometrics</div>
+          <div class="tl-note">Expected May 2027 · GPA 3.9 · Advanced Econometrics, ML in Econometrics, Causal Inference</div>
         </div>
       </div>
       <div class="tl-item">
@@ -615,7 +689,7 @@
         <div class="tl-content">
           <div class="tl-degree">Visiting Student</div>
           <div class="tl-school">Università della Svizzera italiana, Lugano</div>
-          <div class="tl-note">Machine Learning · Databases · Data Analytics</div>
+          <div class="tl-note">SEMP Merit Scholarship ($10K) · Machine Learning, Data Analytics, Databases</div>
         </div>
       </div>
       <div class="tl-item">
@@ -623,32 +697,135 @@
         <div class="tl-content">
           <div class="tl-degree">B.Sc. Economics &amp; Statistics</div>
           <div class="tl-school">Higher School of Economics (HSE)</div>
-          <div class="tl-note">Top 5% of cohort · Full Merit Scholarship</div>
+          <div class="tl-note">GPA 4.0 · Top 5% of Cohort · Full Merit Scholarship</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RESEARCH -->
-<div id="research">
+<!-- EXPERIENCE -->
+<div id="experience">
 <div class="section">
   <div class="section-header">
     <span class="section-num">01</span>
-    <h2 class="section-title">Research Projects</h2>
+    <h2 class="section-title">Professional Experience</h2>
+  </div>
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-date">Mar 2024 –<br>Oct 2024</div>
+      <div>
+        <p class="exp-role">Data Analyst &middot; Accenture (Axenix)</p>
+        <h3 class="exp-title">Executive Dashboards &amp; Data for a 4-Bank Merger</h3>
+        <p class="exp-desc">
+          Built executive dashboards and reliable metrics from multi-million-row datasets for
+          M&amp;A leadership, cutting decision-making latency by 40% while migrating 1M+ users
+          from four banks onto a single platform, and coordinated cross-functional workstreams
+          in Asana. Synthesized quantitative findings from a 5M-row dataset in Python and SQL
+          into 10+ executive presentations for the VP of the country's second-largest bank,
+          accelerating leadership approvals on integration risk. Collected and validated data
+          across five departments during the migration, helping define 150+ system-transformation
+          rules that resolved inter-departmental business-logic conflicts with zero disruption
+          to retail banking operations.
+        </p>
+        <div class="exp-tags">
+          <span>SQL</span>
+          <span>Python</span>
+          <span>Executive Dashboards</span>
+          <span>Data Migration</span>
+          <span>Stakeholder Reporting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Oct 2023 –<br>Mar 2024</div>
+      <div>
+        <p class="exp-role">Economic Analyst Intern &middot; SIBUR</p>
+        <h3 class="exp-title">Forecasting &amp; Pipeline Automation Across 90+ Entities</h3>
+        <p class="exp-desc">
+          Built regression-based forecasting models in Python across 90+ multinational entities,
+          improving financial projection accuracy by 15%. Automated data-cleaning pipelines and
+          eliminated manual data entry by writing Python scripts to extract and compute key
+          metrics from unstructured Excel files, reducing overall processing time by up to 60%
+          and tracking deliverables in Trello.
+        </p>
+        <div class="exp-tags">
+          <span>Python</span>
+          <span>Regression</span>
+          <span>Forecasting</span>
+          <span>ETL Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Mar 2024 –<br>Apr 2024</div>
+      <div>
+        <p class="exp-role">Research Assistant &middot; Welfare Research Laboratory, HSE</p>
+        <h3 class="exp-title">Consumer Archetypes from Behavioral Data</h3>
+        <p class="exp-desc">
+          Applied K-means, DBSCAN, and hierarchical clustering with decision-tree models to
+          construct digital consumer archetypes from behavioral data across 15,000+ respondents,
+          identifying drivers of engagement and search behavior by segment to surface
+          opportunities for product and UX improvements.
+        </p>
+        <div class="exp-tags">
+          <span>Clustering</span>
+          <span>Decision Trees</span>
+          <span>Python</span>
+          <span>Behavioral Segmentation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Aug 2022 –<br>Aug 2023</div>
+      <div>
+        <p class="exp-role">Product Analyst &middot; SaySo (Ed-Tech Startup)</p>
+        <h3 class="exp-title">Behavioral Segmentation &amp; Monetization Strategy</h3>
+        <p class="exp-desc">
+          Segmented 40+ early adopters into distinct learning profiles through quantitative
+          behavioral analysis of survey data, personalizing the core product experience and
+          informing a data-driven monetization strategy that achieved 30% gross profitability
+          within the first month, while managing the product backlog in Jira.
+        </p>
+        <div class="exp-tags">
+          <span>Segmentation</span>
+          <span>Survey Data</span>
+          <span>Product Analytics</span>
+          <span>Monetization</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- RESEARCH / PROJECTS -->
+<div id="research">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Data Science Projects</h2>
   </div>
   <div class="projects-grid">
 
     <div class="project-card featured">
       <div>
-        <p class="project-tag">Causal Inference &middot; Field Experiment &middot; LMU Munich &middot; Mar 2026</p>
-        <h3 class="project-title">When Is TSLS Actually LATE? Evidence from Project STAR</h3>
+        <p class="project-tag">Causal Inference &middot; Experimentation &middot; LMU Munich &middot; Mar 2026</p>
+        <h3 class="project-title">When Is TSLS Actually LATE?</h3>
         <p class="project-desc">
-          Replication and extension of Krueger (1999). Applied DDML and IPSW estimators to test
-          whether TSLS retains a valid Local Average Treatment Effect interpretation under covariate
-          inclusion, following Blandhol et al. (2022). The rich covariates condition fails in all
-          grade cohorts — by Grade 3, specification bias accounts for 32.6% of the TSLS estimate,
-          exceeding the selection bias the IV strategy was designed to eliminate.
+          Proved that linear instrumental-variables estimation with covariates is only causally
+          valid under a "rich covariates" condition (Blandhol et al., 2022), deriving the paper's
+          core propositions before testing the result on Project STAR (N=11,599 students) with
+          Ramsey RESET diagnostics — a question directly relevant to how experimentation results
+          get validated in industry A/B testing pipelines. Standard TSLS failed the specification
+          test in every grade cohort, with specification bias inflating the estimate by up to
+          32.6% by Grade 3, while DDML alternatives yielded systematically lower, more robust
+          estimates.
         </p>
         <div class="project-methods">
           <span class="method-tag">DDML</span>
@@ -656,7 +833,6 @@
           <span class="method-tag">IV / TSLS</span>
           <span class="method-tag">RESET Test</span>
           <span class="method-tag">Python</span>
-          <span class="method-tag">DoubleML</span>
         </div>
         <a href="https://github.com/ana-rekovets/project-star-causal-inference" class="project-link" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -680,13 +856,13 @@
     </div>
 
     <div class="project-card">
-      <p class="project-tag">Causal ML &middot; Natural Experiment &middot; LMU Munich &middot; Jun 2025</p>
+      <p class="project-tag">Causal ML &middot; Treatment-Effect Targeting &middot; LMU Munich &middot; Jun 2025</p>
       <h3 class="project-title">Early-Life Cash Transfers: A Causal Forest Approach</h3>
       <p class="project-desc">
-        Replication and extension of Aizer et al. (2016). Applied Generalized Random Forests
-        with doubly robust R-learner estimation to linked administrative records. Estimated ATE
-        of ~1.1 life-years and identified significant CATE heterogeneity driven by county-level
-        public spending on education and welfare.
+        Applied Generalized Random Forests with doubly robust R-learner estimation to linked
+        administrative records to estimate an ATE of ~1.1 life-years and identify which subgroups
+        benefit most from the intervention — the same CATE-based logic used in industry to target
+        interventions, offers, and personalization at the individual level.
       </p>
       <div class="project-methods">
         <span class="method-tag">GRF</span>
@@ -702,12 +878,64 @@
     </div>
 
     <div class="project-card">
-      <p class="project-tag">Causal ML &middot; Firm-Level Data &middot; LMU Munich &middot; Aug 2025</p>
+      <p class="project-tag">Structural Estimation &middot; Experimentation &middot; NYU Stern &middot; Jun 2026</p>
+      <h3 class="project-title">Hotel Search Demand Estimation &amp; Algorithmic Pricing Simulation</h3>
+      <p class="project-desc">
+        Processed a 9.9M-row Expedia search dataset out-of-core with polars, then estimated the
+        causal effect of price on demand through six specifications — OLS, within-session fixed
+        effects, IV/2SLS, and DDML with gradient-boosted regressors — isolating position and
+        quality confounds using randomized-order search sessions. A companion multi-agent
+        Q-learning pricing simulation replicates algorithmic collusion dynamics, reaching perfect
+        collusion (&Delta;=1.00) across 50 seeds, then stress-tests the result under noisy
+        competitor-price signals — directly relevant to pricing-algorithm monitoring and platform
+        policy design.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">IV / 2SLS</span>
+        <span class="method-tag">DDML</span>
+        <span class="method-tag">polars</span>
+        <span class="method-tag">Q-Learning</span>
+        <span class="method-tag">Python</span>
+      </div>
+      <a href="https://github.com/ana-rekovets/demand-estimation-and-algorithmic-pricing" class="project-link" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Causal Inference &middot; People Analytics &middot; NYC Citywide Payroll &middot; Aug 2026</p>
+      <h3 class="project-title">Pay Equity in the New York City Municipal Workforce</h3>
+      <p class="project-desc">
+        Analyzed the full FY2024 NYC citywide payroll (217,402 full-time, full-year employees) to
+        measure the gender pay gap and decompose it into within-job and job-allocation components
+        using a Blinder-Oaxaca framework — the same people-analytics methodology used to audit
+        compensation equity and flag allocation-driven disparities before they surface in
+        attrition or engagement metrics. Found a precise statistical null within-job gap (-0.08%)
+        alongside a large, robust job-allocation effect, and flagged a routine full-time filter
+        that silently excluded a 74.5%-female subgroup and doubled the apparent gap — a reminder
+        that data-cleaning choices can be the biggest lever on a headline metric.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">Blinder-Oaxaca Decomposition</span>
+        <span class="method-tag">Job-Attainment Model</span>
+        <span class="method-tag">Clustered SE</span>
+        <span class="method-tag">Stata / R</span>
+      </div>
+      <a href="https://github.com/ana-rekovets/pay-equity-nyc" class="project-link" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Causal ML &middot; Business Analytics &middot; LMU Munich &middot; Aug 2025</p>
       <h3 class="project-title">Evaluating AI &amp; Innovation Subsidies with Causal ML</h3>
       <p class="project-desc">
-        Applied Causal Forests, DDML, and DR-TMLE to firm-level panel data (2,300+ firms)
-        to estimate heterogeneous treatment effects of innovation subsidies on productivity.
-        Analyzed CATE variation by firm size and sector.
+        Built heterogeneous treatment-effect models (Causal Forests, DDML, DR-TMLE) on a
+        2,381-firm panel to estimate the productivity impact of innovation subsidies,
+        segmenting effects by firm size and sector to identify where the intervention
+        actually pays off.
       </p>
       <div class="project-methods">
         <span class="method-tag">Causal Forests</span>
@@ -719,48 +947,33 @@
     </div>
 
     <div class="project-card">
-      <p class="project-tag">ML / AI &middot; USI Lugano &middot; Jan 2026</p>
-      <h3 class="project-title">Neural Network &amp; Reinforcement Learning from Scratch</h3>
+      <p class="project-tag">Machine Learning &middot; USI Lugano &middot; Jan 2026</p>
+      <h3 class="project-title">Neural Network &amp; Reinforcement Learning for Personalized Recommendations</h3>
       <p class="project-desc">
-        Implemented a fully connected neural network in Python/NumPy including forward
-        propagation, ReLU, and manually derived backpropagation. Implemented SARSA and
-        Q-Learning using OpenAI Gymnasium with epsilon-greedy exploration across 200+
-        training episodes.
+        Implemented a fully connected neural network from scratch in Python/NumPy (forward
+        propagation, ReLU activation, manually derived backpropagation) alongside SARSA and
+        Q-Learning agents trained with epsilon-greedy exploration in Gymnasium, validating
+        convergence for a personalized-recommendation use case across 200+ training episodes.
+        Extended the work with self-directed exploration of LLMs and text embeddings
+        (sentence-transformers) as a next step toward semantic recommendation.
       </p>
       <div class="project-methods">
+        <span class="method-tag">Backpropagation</span>
         <span class="method-tag">SARSA</span>
         <span class="method-tag">Q-Learning</span>
-        <span class="method-tag">Backpropagation</span>
-        <span class="method-tag">Gymnasium</span>
+        <span class="method-tag">Sentence-Transformers</span>
         <span class="method-tag">NumPy</span>
       </div>
     </div>
 
     <div class="project-card">
-      <p class="project-tag">Consumer Behavior &middot; USI Lugano &middot; Dec 2025</p>
-      <h3 class="project-title">Consumer Behavior Research: Digital Collaboration Tools</h3>
-      <p class="project-desc">
-        Conducted 12 semi-structured interviews. Synthesized qualitative data using Work
-        Activity Affinity Diagrams (WAAD) to identify consumer pain points, tool usage
-        patterns, and collaboration barriers. Developed three empirically grounded user
-        personas validated against interview data.
-      </p>
-      <div class="project-methods">
-        <span class="method-tag">WAAD</span>
-        <span class="method-tag">User Personas</span>
-        <span class="method-tag">Qualitative Research</span>
-        <span class="method-tag">SUS Evaluation</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <p class="project-tag">Pricing &middot; Panel Data &middot; HSE &middot; Jun 2024</p>
+      <p class="project-tag">Pricing Analytics &middot; Panel Data &middot; HSE &middot; Jun 2024</p>
       <h3 class="project-title">Migration Shocks, Housing Markets &amp; Prices</h3>
       <p class="project-desc">
-        Bachelor's thesis. Constructed a monthly 8-year panel from three administrative
-        sources. Applied econometric analysis to estimate pricing responses to large-scale
-        exogenous demand shocks. Found a 1% demand increase caused a 1.4% immediate
-        price increase with 3× amplification during a structural shock.
+        Bachelor's thesis. Built a monthly 8-year panel from three administrative sources to
+        model how prices respond to large-scale demand shocks — the kind of pricing-sensitivity
+        analysis used in market and revenue analytics. Found a 1% demand increase caused a
+        1.4% immediate price increase, with 3&times; amplification during a structural shock.
       </p>
       <div class="project-methods">
         <span class="method-tag">Panel Data</span>
@@ -772,17 +985,18 @@
     </div>
 
     <div class="project-card">
-      <p class="project-tag">Political Economy &middot; Panel Data &middot; University of Leipzig &middot; Sep 2023</p>
-      <h3 class="project-title">Income Inequality, Capitalism, and Diversity: A Shapley Decomposition</h3>
+      <p class="project-tag">Feature Attribution &middot; Panel Data &middot; University of Leipzig &middot; Sep 2023</p>
+      <h3 class="project-title">Drivers of Global Income Inequality: A Shapley-Owen Decomposition</h3>
       <p class="project-desc">
-        Analyzed a macroeconomic panel (108 countries, 40 years) in Stata using Shapley
-        and Owen R² decompositions to quantify drivers of income redistribution. Found that
-        the economic freedom–diversity interaction accounts for ~50% of explained variance
-        in baseline redistribution models.
+        Analyzed a macroeconomic panel (108 countries, 40 years) in Stata using Shapley and
+        Owen R&sup2; decomposition — the same variance-decomposition logic behind feature
+        importance in explainable ML — to quantify drivers of income redistribution. Found
+        that one predictor interaction accounted for ~50% of explained variance in baseline
+        models.
       </p>
       <div class="project-methods">
         <span class="method-tag">Shapley Decomposition</span>
-        <span class="method-tag">Owen R²</span>
+        <span class="method-tag">Owen R&sup2;</span>
         <span class="method-tag">Macro Panel Data</span>
         <span class="method-tag">Stata</span>
         <span class="method-tag">108 Countries</span>
@@ -793,6 +1007,22 @@
       </a>
     </div>
 
+    <div class="project-card">
+      <p class="project-tag">User Research &middot; Product &middot; USI Lugano &middot; Dec 2025</p>
+      <h3 class="project-title">Consumer Behavior Research: Digital Collaboration Tools</h3>
+      <p class="project-desc">
+        Conducted 12 semi-structured interviews and synthesized findings using Work Activity
+        Affinity Diagrams (WAAD) to identify consumer pain points, tool-usage patterns, and
+        collaboration barriers, developing three empirically grounded personas that informed
+        product and workflow recommendations.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">WAAD</span>
+        <span class="method-tag">User Personas</span>
+        <span class="method-tag">Qualitative Research</span>
+      </div>
+    </div>
+
   </div>
 </div>
 </div>
@@ -801,20 +1031,22 @@
 <div id="sql">
 <div class="section">
   <div class="section-header">
-    <span class="section-num">02</span>
-    <h2 class="section-title">Supermarket Chain — Relational Database</h2>
+    <span class="section-num">03</span>
+    <h2 class="section-title">Retail Analytics — Relational Database</h2>
   </div>
   <div class="sql-grid">
     <div>
       <p class="sql-desc">
         Full design and implementation of a normalized relational database for a multi-country
-        supermarket chain in MySQL. Covers the complete pipeline from EER diagram to 3NF schema
-        to 15 analytical queries spanning joins, correlated subqueries, and relational division.
+        retail chain in MySQL, built for transaction-level analytics and customer segmentation
+        across 6 product categories and 3 store locations. Covers the complete pipeline from
+        EER diagram to 3NF schema to 15 analytical queries spanning joins, correlated
+        subqueries, and relational division.
       </p>
       <p class="sql-desc">
         Models customers, transactions, products, store inventory, payment methods, and a
-        loyalty points program with full earn/redeem audit trail. Historical pricing stored at
-        transaction level — past receipts remain accurate when list prices change.
+        loyalty points program with full earn/redeem audit trail. Historical pricing is stored
+        at the transaction level, so reporting stays accurate even after list prices change.
       </p>
       <ul class="schema-list">
         <li class="schema-item">
@@ -887,58 +1119,111 @@
 </div>
 </div>
 
+<!-- CERTIFICATES & AWARDS -->
+<div id="certifications">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Certificates &amp; Awards</h2>
+  </div>
+  <div class="info-list">
+    <div class="info-item">
+      <div>
+        <div class="info-title">Product Management Certificate — Cornell University</div>
+      </div>
+      <div class="info-date">2025</div>
+    </div>
+    <div class="info-item">
+      <div>
+        <div class="info-title">ICDL Certificate — University of Porto</div>
+        <div class="info-detail">Data analytics &amp; visualization (Power BI), AI, data protection</div>
+      </div>
+      <div class="info-date">2026</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- LEADERSHIP, TEACHING & CONFERENCES -->
+<div id="leadership">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Leadership, Teaching &amp; Conferences</h2>
+  </div>
+  <div class="info-list">
+    <div class="info-item">
+      <div>
+        <div class="info-title">AI and Mathematics Lecturer — Marabou</div>
+        <div class="info-detail">Taught AI, machine learning, and neural network fundamentals to youth students through a hands-on curriculum.</div>
+      </div>
+      <div class="info-date">Jul – Aug 2025</div>
+    </div>
+    <div class="info-item">
+      <div>
+        <div class="info-title">1st Place Winner &amp; Team Lead — Unilever Financial Business Case Championship</div>
+        <div class="info-detail">Led a 5-member team to 1st place out of 63 teams (284 participants) with a data-driven financial strategy.</div>
+      </div>
+      <div class="info-date">Nov 2023</div>
+    </div>
+    <div class="info-item">
+      <div>
+        <div class="info-title">Academic Presentations</div>
+        <div class="info-detail">6th Annual SYMGLOH Symposium, Université Paris-Saclay; EUGLOH Conference, University of Alcalá; Symposium on Global Health, Paris — &ldquo;Real-World Evidence for Upstream Health Interventions: A Causal Machine Learning Framework Applied to Early-Life Income Support and Longevity&rdquo;</div>
+      </div>
+      <div class="info-date"></div>
+    </div>
+  </div>
+</div>
+</div>
+
 <!-- SKILLS -->
 <div id="skills">
 <div class="section">
   <div class="section-header">
-    <span class="section-num">03</span>
+    <span class="section-num">06</span>
     <h2 class="section-title">Skills</h2>
   </div>
   <div class="skills-grid">
     <div class="skill-block">
-      <p class="skill-category">ML &amp; AI</p>
+      <p class="skill-category">Experimentation &amp; Causal Inference</p>
       <ul class="skill-list">
-        <li>Causal Forests (GRF)</li>
-        <li>Double/Debiased ML</li>
-        <li>DR-TMLE</li>
-        <li>Neural Networks (scratch)</li>
-        <li>Reinforcement Learning</li>
-        <li>NLP Fundamentals</li>
-        <li>Supervised Learning</li>
-        <li>Clustering</li>
+        <li>A/B testing &amp; experimental design</li>
+        <li>Causal inference (RCT, IV/TSLS, DiD)</li>
+        <li>Causal Forests, DDML, DR-TMLE</li>
+        <li>Treatment-effect heterogeneity (CATE)</li>
+        <li>Metric design</li>
       </ul>
     </div>
     <div class="skill-block">
-      <p class="skill-category">Statistical Methods</p>
+      <p class="skill-category">Machine Learning</p>
       <ul class="skill-list">
-        <li>Causal Inference</li>
-        <li>Field &amp; Survey Experiments</li>
-        <li>Heterogeneous Treatment Effects</li>
-        <li>IV / TSLS</li>
-        <li>Difference-in-Differences</li>
-        <li>Interrupted Time Series</li>
+        <li>Clustering (K-means, DBSCAN, Hierarchical)</li>
+        <li>Neural networks (from scratch)</li>
+        <li>Reinforcement learning (SARSA, Q-Learning)</li>
+        <li>LLMs &amp; text embeddings (sentence-transformers)</li>
+        <li>Behavioral segmentation</li>
       </ul>
     </div>
     <div class="skill-block">
-      <p class="skill-category">Software</p>
+      <p class="skill-category">Programming &amp; Databases</p>
       <ul class="skill-list">
-        <li>Python (pandas, NumPy, sklearn)</li>
-        <li>R (tidyverse, grf, DoubleML)</li>
         <li>SQL / MySQL</li>
+        <li>Python (pandas, scikit-learn, statsmodels, PyTorch)</li>
+        <li>R (tidyverse, grf, ggplot2)</li>
         <li>Stata</li>
         <li>GitHub</li>
-        <li>LaTeX</li>
+        <li>Power BI / Tableau</li>
       </ul>
     </div>
     <div class="skill-block">
-      <p class="skill-category">Data Skills</p>
+      <p class="skill-category">Product &amp; Stakeholder Analytics</p>
       <ul class="skill-list">
-        <li>High-dimensional transaction data</li>
-        <li>Pricing &amp; advertising data</li>
-        <li>Unstructured data processing</li>
-        <li>Web scraping &amp; API collection</li>
-        <li>Panel construction</li>
-        <li>Consumer segmentation</li>
+        <li>Executive dashboards &amp; stakeholder reporting</li>
+        <li>Survey design &amp; behavioral segmentation</li>
+        <li>User research (interviews, WAAD, personas)</li>
+        <li>Data pipeline automation &amp; ETL</li>
+        <li>Cross-functional delivery (Asana, Jira, Trello)</li>
       </ul>
     </div>
   </div>
@@ -949,18 +1234,21 @@
 <div id="about">
 <div class="section">
   <div class="section-header">
-    <span class="section-num">04</span>
+    <span class="section-num">07</span>
     <h2 class="section-title">About</h2>
   </div>
   <div class="about-grid">
     <div class="about-text">
-      I am an M.Sc. Economics candidate at LMU Munich with a research focus on causal
-      machine learning, consumer behavior, and high-dimensional data. My work combines
-      causal forest methods, field experiment design, and statistical analysis to estimate
-      heterogeneous treatment effects across individuals and markets. I bring hands-on
-      experience in data pipeline automation, digital marketing analytics, and consumer
-      research — and I am available for a full-time research position starting
-      July or August 2026. U.S. Permanent Resident, based in West New York, NJ.
+      I'm a Data Scientist with 3+ years of experience in data analysis and experimentation,
+      including academic research, completing an M.Sc. in Economics at LMU Munich (thesis in
+      progress remotely from New York — available to start full-time). I apply SQL, Python, and
+      R to turn large-scale user and behavioral data into actionable insights for cross-functional
+      product and business teams, building pipelines from experimental design to the metrics and
+      dashboards that monitor product growth and health. My experience spans data analysis at
+      Accenture (Axenix), product analytics at an early-stage ed-tech startup, and applied
+      research on treatment-effect estimation and consumer segmentation. Open to full-time Data
+      Science, Research Scientist, Data Analyst, and Product Analyst roles. U.S. Permanent
+      Resident, based in New York, NY, open to relocation.
     </div>
     <div class="contact-block">
       <div class="contact-item">
@@ -972,20 +1260,20 @@
         <span class="contact-value">+1 (201) 758-6034</span>
       </div>
       <div class="contact-item">
+        <span class="contact-label">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/anastasiia-rekovets/" class="contact-value" target="_blank">linkedin.com/in/anastasiia-rekovets</a>
+      </div>
+      <div class="contact-item">
         <span class="contact-label">GitHub</span>
         <a href="https://github.com/ana-rekovets" class="contact-value" target="_blank">github.com/ana-rekovets</a>
       </div>
       <div class="contact-item">
         <span class="contact-label">Location</span>
-        <span class="contact-value">West New York, NJ</span>
+        <span class="contact-value">New York, NY</span>
       </div>
       <div class="contact-item">
         <span class="contact-label">Status</span>
         <span class="contact-value">U.S. Permanent Resident</span>
-      </div>
-      <div class="contact-item">
-        <span class="contact-label">Available</span>
-        <span class="contact-value">July / August 2026</span>
       </div>
     </div>
   </div>
@@ -994,8 +1282,5 @@
 
 <footer>
   <span>Anastasiia Rekovets</span>
-  <span>M.Sc. Economics · LMU Munich · 2026</span>
+  <span>Data Science · Product &amp; Data Analytics · 2026</span>
 </footer>
-
-</body>
-</html>
